@@ -1,0 +1,649 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/iron-validator-behavior/iron-validator-behavior.html">
+<!-- Since 'home' is the default route, eagerly load it. -->
+
+
+<dom-module id="dairy-survey">
+
+  <template>
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+    <div class="bootstrap-iso">
+     <div class="container-fluid">
+      <div class="row">
+       <div class="col-md-6 col-sm-6 col-xs-12">
+        <form method="post">
+         <div class="form-group ">
+          <label class="control-label ">
+           Preferred brand of milk
+          </label>
+          <div class=" ">
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox" type="checkbox" value="Amul"/>
+             Amul
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox" type="checkbox" value="Varna"/>
+             Varna
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox" type="checkbox" value="Goverdhan"/>
+             Goverdhan
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox" type="checkbox" value="Gokal"/>
+             Gokal
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox" type="checkbox" value="Ara"/>
+             Ara
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox" type="checkbox" value="Nandani"/>
+             Nandani
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group ">
+          <label class="control-label ">
+           Would you like to buy online Veggies or Fruit
+          </label>
+          <div class="">
+           <div class="radio">
+            <label class="radio">
+             <input name="radio" type="radio" value="Yes"/>
+             Yes
+            </label>
+           </div>
+           <div class="radio">
+            <label class="radio">
+             <input name="radio" type="radio" value="NO"/>
+             NO
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group ">
+          <label class="control-label ">
+           Consumption of other milk products
+          </label>
+          <div class=" ">
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox1" type="checkbox" value="Curd"/>
+             Curd
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox1" type="checkbox" value="Butter milk"/>
+             Butter milk
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox1" type="checkbox" value="paneer"/>
+             paneer
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox1" type="checkbox" value="Chease"/>
+             Chease
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group ">
+          <label class="control-label ">
+           how you already buying the milk online
+          </label>
+          <div class="">
+           <div class="radio">
+            <label class="radio">
+             <input name="radio1" type="radio" value="Yes"/>
+             Yes
+            </label>
+           </div>
+           <div class="radio">
+            <label class="radio">
+             <input name="radio1" type="radio" value="No"/>
+             No
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group ">
+          <label class="control-label ">
+           how would you like pay
+          </label>
+          <div class=" ">
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox2" type="checkbox" value="Weekly"/>
+             Weekly
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox2" type="checkbox" value="15 days"/>
+             15 days
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox2" type="checkbox" value="Monthly"/>
+             Monthly
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group ">
+          <label class="control-label ">
+           which payment mode you like
+          </label>
+          <div class=" ">
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox3" type="checkbox" value="Paytm"/>
+             Paytm
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox3" type="checkbox" value="Tez"/>
+             Tez
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox3" type="checkbox" value="Netbanking/Card"/>
+             Netbanking/Card
+            </label>
+           </div>
+           <div class="checkbox">
+            <label class="checkbox">
+             <input name="checkbox3" type="checkbox" value="Cash"/>
+             Cash
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group ">
+          <label class="control-label " for="address">
+           Address
+          </label>
+          <input class="form-control" id="address" name="address" type="text"/>
+         </div>
+         <div class="form-group ">
+          <label class="control-label " for="dailymilkConsumption">
+           Daily Milk consumption
+          </label>
+          <input class="form-control" id="dailymilkConsumption" name="dailymilkConsumption" type="text"/>
+         </div>
+         <div class="form-group ">
+          <label class="control-label " for="text">
+           distance of the nearest milk booth
+          </label>
+          <input class="form-control" id="text" name="text" type="text"/>
+         </div>
+         <div class="form-group ">
+          <label class="control-label ">
+           are you ready to take from us
+          </label>
+          <div class="">
+           <div class="radio">
+            <label class="radio">
+             <input name="radio2" type="radio" value="Yes"/>
+             Yes
+            </label>
+           </div>
+           <div class="radio">
+            <label class="radio">
+             <input name="radio2" type="radio" value="No"/>
+             No
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div>
+           <button class="btn btn-primary " name="submit" type="submit">
+            Submit
+           </button>
+          </div>
+         </div>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div>
+
+
+    <div class="formLayout">
+          <!-- <form is="iron-form" id="dairyDataForm" method="post" action="#" on-iron-form-submit="sendForm"> -->
+          <form  id="dairyDataForm" method="post" action="#" >
+            <div class="formtitle"><h1 style="color: inherit">Dairy Survey<h1></div>
+              <div class="textfield">
+    					<paper-input label="Address" value="{{formData.address}}" always-float-label required>
+    					</div>
+              <div class="textfield">
+    					<paper-input label="What is daily Consumption of milk(litres)?" value="{{formData.dailyconsumpation}}" auto-validate pattern="[0-9-()]*[1-9][0-9-()]*" error-message="numbers only!" always-float-label required>
+    					</div>
+              <div class="textfield"><label>Preferred milk brand</label>
+                <paper-button toggles raised class="custom green">Aarey</paper-button>
+                <paper-button toggles raised class="custom green">Amul milk</paper-button>
+                <paper-button toggles raised class="custom green">Govardhan</paper-button>
+                <paper-button toggles raised class="custom green">Mahananda</paper-button>
+                <paper-button toggles raised class="custom green">Gokul</paper-button>
+
+
+    					<!-- <paper-input label="Preferred brand milk" value="{{formData.milk_brand}}" always-float-label required> -->
+    					</div>
+              <div class="textfield">
+    					<paper-input label="Veggies or non-veggies" value="{{formData.otherproducts}}" always-float-label required>
+    					</div>
+              <div class="textfield">
+    					<paper-input label="Other Milk Product(eg:butter,curd)" value="{{formData.othermilkproduct}}" always-float-label required>
+    					</div>
+              <div class="textfield">
+    					<paper-input label="how do you buy milk(eg:local dairy farm,online..)" value="{{formData.buyoption}}" always-float-label required>
+    					</div>
+              <div class="textfield">
+              <paper-input label="What is the distance of nearest milkbooth" value="{{formData.distancebooth}}" always-float-label required>
+              </div>
+              <div class="textfield">
+              <paper-input label="Duration you would like to pay?(weekly,monthly)" value="{{formData.payduration}}" always-float-label required>
+              </div>
+              <div class="textfield">
+                <label>By which payment mode do you pay your bills</label>
+                <paper-button toggles raised class="custom green">CASH</paper-button>
+                <paper-button toggles raised class="custom green">PayTm</paper-button>
+                <paper-button toggles raised class="custom green">Debit/Credit Card</paper-button>
+
+              <!-- <paper-input label="By which payment mode do you pay your bills(Cash on Delivery,PayTm,Internet Banking)" value="{{formData.paymod}}" always-float-label required> -->
+              </div>
+              <div class="textfield">
+              <paper-input label="Do you like our Idea. Are you ready to take service from us?" value="{{formData.wouldlikeouridea}}" always-float-label required>
+              </div>
+
+              <div>
+    					<paper-button id="saveUserButton" class='submitButton' raised  on-tap="trySave" style="margin-bottom: 20px;" >Submit</paper-button>
+    					</div>
+              <div class="output"></div>
+          </form>
+          <iron-ajax
+          				id="ajaxSave"
+          			  method="POST"
+          				content-type="application/json"
+          				url="../secure/api/v1/currentUser/"
+          				handle-as="json"
+          				on-response="savedResponse">
+          </iron-ajax>
+        </div>
+
+
+  </template>
+
+  <script>
+
+    // performance logging
+    window.performance && performance.mark && performance.mark('dairy-survey - before register');
+
+    class dairySurvey extends Polymer.Element {
+
+      static get is() { return 'dairy-survey'; }
+
+      static get properties() { return {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+        numItems: {
+          type: Number,
+          value: 0
+        },
+
+        _shouldShowTabs: {
+          computed: '_computeShouldShowTabs(page, smallScreen)'
+        },
+
+        _shouldRenderTabs: {
+          computed: '_computeShouldRenderTabs(_shouldShowTabs, loadComplete)'
+        },
+
+        _shouldRenderDrawer: {
+          computed: '_computeShouldRenderDrawer(smallScreen, loadComplete)'
+        }
+      }}
+
+      static get observers() { return [
+        '_routePageChanged(routeData.page)'
+      ]}
+
+      constructor() {
+        super();
+        window.performance && performance.mark && performance.mark('dairy-survey.created');
+      }
+
+      ready() {
+        super.ready();
+        // Custom elements polyfill safe way to indicate an element has been upgraded.
+        this.removeAttribute('unresolved');
+        // listen for custom events
+        this.addEventListener('add-cart-item', (e)=>this._onAddCartItem(e));
+        this.addEventListener('set-cart-item', (e)=>this._onSetCartItem(e));
+        this.addEventListener('clear-cart', (e)=>this._onClearCart(e));
+        this.addEventListener('change-section', (e)=>this._onChangeSection(e));
+        this.addEventListener('announce', (e)=>this._onAnnounce(e));
+        this.addEventListener('dom-change', (e)=>this._domChange(e));
+        this.addEventListener('show-invalid-url-warning', (e)=>this._onFallbackSelectionTriggered(e));
+        // listen for online/offline
+        Polymer.RenderStatus.afterNextRender(this, () => {
+          window.addEventListener('online', (e)=>this._notifyNetworkStatus(e));
+          window.addEventListener('offline', (e)=>this._notifyNetworkStatus(e));
+        });
+      }
+
+      _routePageChanged(page) {
+        if (this.page === 'list') {
+          this._listScrollTop = window.pageYOffset;
+        }
+
+        this.page = page || 'home';
+
+        // Close the drawer - in case the *route* change came from a link in the drawer.
+        this.drawerOpened = false;
+      }
+
+      _pageChanged(page, oldPage) {
+        if (page != null) {
+          // home route is eagerly loaded
+          if (page == 'home') {
+            this._pageLoaded(Boolean(oldPage));
+          // other routes are lazy loaded
+          } else {
+            // When a load failed, it triggered a 404 which means we need to
+            // eagerly load the 404 page definition
+            let cb = this._pageLoaded.bind(this, Boolean(oldPage));
+            Polymer.importHref(
+              this.resolveUrl('shop-' + page + '.html'),
+              cb, cb, true);
+          }
+        }
+      }
+
+      _pageLoaded(shouldResetLayout) {
+        this._ensureLazyLoaded();
+        if (shouldResetLayout) {
+          // The size of the header depends on the page (e.g. on some pages the tabs
+          // do not appear), so reset the header's layout only when switching pages.
+          Polymer.Async.timeOut.run(() => {
+            this.$.header.resetLayout();
+          }, 1);
+        }
+      }
+
+      _ensureLazyLoaded() {
+        // load lazy resources after render and set `loadComplete` when done.
+        if (!this.loadComplete) {
+          Polymer.RenderStatus.afterNextRender(this, () => {
+            Polymer.importHref(this.resolveUrl('lazy-resources.html'), () => {
+              // Register service worker if supported.
+              if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js', {scope: '/'});
+              }
+              this._notifyNetworkStatus();
+              this.loadComplete = true;
+            });
+          });
+        }
+      }
+
+      _notifyNetworkStatus() {
+        let oldOffline = this.offline;
+        this.offline =  !navigator.onLine;
+        // Show the snackbar if the user is offline when starting a new session
+        // or if the network status changed.
+        if (this.offline || (!this.offline && oldOffline === true)) {
+          if (!this._networkSnackbar) {
+            this._networkSnackbar = document.createElement('shop-snackbar');
+            this.root.appendChild(this._networkSnackbar);
+          }
+          this._networkSnackbar.innerHTML = this.offline ?
+              'You are offline' : 'You are online';
+          this._networkSnackbar.open();
+        }
+      }
+
+      _toggleDrawer() {
+        this.drawerOpened = !this.drawerOpened;
+      }
+
+      _setMeta(attrName, attrValue, content) {
+        let element = document.head.querySelector(`meta[${attrName}="${attrValue}"]`);
+        if (!element) {
+          element = document.createElement('meta');
+          element.setAttribute(attrName, attrValue);
+          document.head.appendChild(element);
+        }
+        element.setAttribute('content', content || '');
+      }
+
+      // Elements in the app can notify section changes.
+      // Response by a11y announcing the section and syncronizing the category.
+      _onChangeSection(event) {
+        let detail = event.detail;
+
+        // Scroll to the top of the page when navigating to a non-list page. For list view,
+        // scroll to the last saved position only if the category has not changed.
+        let scrollTop = 0;
+        if (this.page === 'list') {
+          if (this.categoryName === detail.category) {
+            scrollTop = this._listScrollTop;
+          } else {
+            // Reset the list view scrollTop if the category changed.
+            this._listScrollTop = 0;
+          }
+        }
+        // Use `Polymer.AppLayout.scroll` with `behavior: 'silent'` to disable header scroll
+        // effects during the scroll.
+        Polymer.AppLayout.scroll({ top: scrollTop, behavior: 'silent' });
+
+        this.categoryName = detail.category || '';
+
+        // Announce the page's title
+        if (detail.title) {
+          document.title = detail.title + ' - SHOP';
+          this._announce(detail.title + ', loaded');
+          // Set open graph metadata
+          this._setMeta('property', 'og:title', detail.title);
+          this._setMeta('property', 'og:description', detail.description || document.title);
+          this._setMeta('property', 'og:url', document.location.href);
+          this._setMeta('property', 'og:image', detail.image || this.baseURI + 'images/shop-icon-128.png');
+          // Set twitter card metadata
+          this._setMeta('property', 'twitter:title', detail.title);
+          this._setMeta('property', 'twitter:description', detail.description || document.title);
+          this._setMeta('property', 'twitter:url', document.location.href);
+          this._setMeta('property', 'twitter:image:src', detail.image || this.baseURI + 'images/shop-icon-128.png');
+        }
+      }
+
+      _onAddCartItem(event) {
+        if (!this._cartModal) {
+          this._cartModal = document.createElement('shop-cart-modal');
+          this.root.appendChild(this._cartModal);
+        }
+        this.$.cart.addItem(event.detail);
+        this._cartModal.open();
+        this._announce('Item added to the cart');
+      }
+
+      _onSetCartItem(event) {
+        let detail = event.detail;
+        this.$.cart.setItem(detail);
+        if (detail.quantity === 0) {
+          this._announce('Item deleted');
+        } else {
+          this._announce('Quantity changed to ' + detail.quantity);
+        }
+      }
+
+      _onClearCart() {
+        this.$.cart.clearCart();
+        this._announce('Cart cleared');
+      }
+
+      // Elements in the app can notify a change to be a11y announced.
+      _onAnnounce(e) {
+        this._announce(e.detail);
+      }
+
+      // A11y announce the given message.
+      _announce(message) {
+        this._a11yLabel = '';
+        this._announceDebouncer = Polymer.Debouncer.debounce(this._announceDebouncer,
+          Polymer.Async.timeOut.after(100), () => {
+            this._a11yLabel = message;
+          });
+      }
+
+      // This is for performance logging only.
+      _domChange(e) {
+        if (window.performance && performance.mark && !this.__loggedDomChange) {
+          let target = e.composedPath()[0];
+          let host = target.getRootNode().host;
+          if (host && host.localName.match(this.page)) {
+            this.__loggedDomChange = true;
+            performance.mark(host.localName + '.domChange');
+          }
+        }
+      }
+
+      _onFallbackSelectionTriggered() {
+        this.page = '404';
+      }
+
+      _computeShouldShowTabs(page, smallScreen) {
+        return (page === 'home' || page === 'list' || page === 'detail') && !smallScreen;
+      }
+
+      _computeShouldRenderTabs(_shouldShowTabs, loadComplete) {
+        return _shouldShowTabs && loadComplete;
+      }
+
+      _computeShouldRenderDrawer(smallScreen, loadComplete) {
+        return smallScreen && loadComplete;
+      }
+
+      _computePluralizedQuantity(quantity) {
+        return quantity + ' ' + (quantity === 1 ? 'item' : 'items');
+      }
+
+    }
+
+    customElements.define(dairySurvey.is, dairySurvey);
+
+  </script>
+
+</dom-module>
+<style>
+
+.formLayout{
+        /* background: #333333; */
+        width: 50%;
+        line-height: 16px;
+        margin: auto;
+        align-self: center;
+      }
+      .formLayout > div {
+        margin: 0;
+        padding-top: 10px;
+      }
+       .submitButton{
+       margin-top: 5px;
+       float: right;
+       background: #2886af;
+     }
+     label#paper-input-label{
+       color: aliceblue;
+   font-size: larger;
+     }
+
+ #container {
+   display: flex;
+ }
+ paper-button {
+   font-family: 'Roboto', 'Noto', sans-serif;
+   font-weight: normal;
+   font-size: 14px;
+   -webkit-font-smoothing: antialiased;
+ }
+ paper-button.pink {
+   color: var(--paper-pink-a200);
+   --paper-button-ink-color: var(--paper-pink-a200);
+ }
+ paper-button.pink:hover {
+   background-color: var(--paper-pink-100);
+ }
+ paper-button.indigo {
+   background-color: var(--paper-indigo-500);
+   color: white;
+   --paper-button-raised-keyboard-focus: {
+     background-color: var(--paper-pink-a200) !important;
+     color: white !important;
+   };
+ }
+ paper-button.indigo:hover {
+   background-color: var(--paper-indigo-400);
+ }
+ paper-button.green {
+   background-color: var(--paper-green-500);
+   color: white;
+ }
+ paper-button.green[active] {
+   background-color: var(--paper-red-500);
+ }
+ paper-button.disabled {
+   color: white;
+ }
+
+</style>
