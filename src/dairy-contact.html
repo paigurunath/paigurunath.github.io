@@ -1,6 +1,12 @@
 <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
 <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+<!-- <script src="../bower_components/jquery/dist/jquery.min.js"></script> -->
 
 <!-- Inline CSS based on choices in "Settings" tab -->
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
@@ -401,39 +407,25 @@
 <!-- w3layouts -->
        <tr>
            <td width="100%" align="center" valign="top">
-
-      <!-- content -->
-
+  <!-- content -->
                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="container top-header-left">
-
         <tr><td height="80px" class="agileits_main_space"></td></tr>
-
         <tr>
           <td>
             <table width="800" class="header" border="0" cellpadding="0" cellspacing="0" align="center">
-
               <tr>
                 <td>
-
                   <!-- banner -->
-
                   <table class="container-middle w3ls_banner" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background:url(../images/banner.jpg) no-repeat 0px 0px;" height="400">
-
                     <tr>
                       <td>
-
                         <table class="dairy" width="600" border="0" cellpadding="0" cellspacing="0" align="center">
-
                           <tr>
                             <td>
-
                               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-
                                 <tr><td height="20" class="w3l_space"></td></tr>
-
                                 <tr>
                                   <td>
-
                                     <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l_logo_left">
 
                                       <tr><td height="15" class="w3l_space_banner_top"></td></tr>
@@ -560,7 +552,6 @@
 
                       </td>
                     </tr>
-
                   </table>
 
                   <!-- //banner -->
@@ -572,8 +563,9 @@
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
+    <br><br>
    <div class="col-md-6 col-sm-6 col-xs-12" style="width:100%">
-    <form method="post">
+    <!-- <form method="post"> -->
      <div class="form-group ">
       <label class="control-label " for="name">
        Name
@@ -606,49 +598,54 @@
        <button id="submitbtn" class="btn btn-primary " onclick="" name="submit" type="submit">
         Submit
        </button>
-       <button class="btn btn-primary "   onclick="window.history.go(-1); return false;" name="submit" type="submit">
+       <button class="btn btn-primary "   onclick="window.history.go(-1); return false;" name="Back">
         Back
        </button>
       </div>
      </div>
-    </form>
+    <!-- </form> -->
    </div>
   </div>
  </div>
 </div>
 
 <script type="text/javascript">
-        $(document).ready(function() {
-                $('#submitbtn').click(function(){
-                    $.ajax({
-                    type:"POST",
-                    url : "http://dairy-edentulous-radectomy.eu-gb.mybluemix.net/insertFeedBack",
-                    data:{
-                      	"name": "NileshTest",
-                        "address": "radhakrishnaNileshTest",
-                        "geolocation" : {"lat" : 45.3675555555, "long": 67.89999999},
-                        "dailyconsumption": "500",
-                        "milkbrand": ["warana", "govind"],
-                        "otherproducts": ["veggies", "fruits"],
-                        "milkproducts": ["curd", "cheese"],
-                        "distancebooth": "2000 meters",
-                        "alreadyHavingservice": "yes",
-                        "paymentmode":["paytm","Cash","netbanking"],
-                        "frequently_used_paymment_mode": "paytm",
-                        "ready_for_our_service": "yes"
-                      } , // do I need to pass data if im GET ting?
-                    dataType: 'json',
-                    success : function(data){
-                       //doing stuff
-                       //end success
-                    },
-                    failed: function() {
-                       //submit form !!!
-                       console.log("failed to request");
-                    }
-                });//end ajax
-              });//end click
-            });//end rdy
+$(document).ready(function(){
+    $("button#submitbtn").click(function(){
+
+      dataObj = {}
+      dataObj['name'] = $("input#name")[0].value
+      dataObj['email'] = $("input#email")[0].value
+      dataObj['subject'] = $("input#subject")[0].value
+      dataObj['message'] = $("textarea#message")[0].value
+        dataObj = {
+          "name": "NileshTest",
+          "address": "radhakrishnaNileshTest",
+          "geolocation" : {"lat" : 45.3675555555, "long": 67.89999999},
+          "dailyconsumption": "500",
+          "milkbrand": ["warana", "govind"],
+          "otherproducts": ["veggies", "fruits"],
+          "milkproducts": ["curd", "cheese"],
+          "distancebooth": "2000 meters",
+          "alreadyHavingservice": "yes",
+          "paymentmode":["paytm","Cash","netbanking"],
+          "frequently_used_paymment_mode": "paytm",
+          "ready_for_our_service": "yes"
+        };
+         BootstrapDialog.alert('Thank you! <br> our team will get in touch with you shortly');
+      $.ajax({
+          type:"POST",
+          url : "http://3.209.31.197:8080/insertFeedBack",
+          headers: {'Content-Type': 'application/json'},
+          data:JSON.stringify(dataObj),
+          dataType: 'json',
+          success : function(data){
+            console.log("success to request"+data);
+             BootstrapDialog.alert('Thank you! <br> our team will get in touch with you shortly');
+          }
+        });
+    });
+});
         </script>
 <!--
 <table bgcolor="#212121" class="container-middle combo1" width="51%" border="0" align="center" cellpadding="0" cellspacing="0">
