@@ -547,17 +547,7 @@ label.control-label {
               location.longitude=position.coords.longitude;
               geolatitude=position.coords.latitude
               geoLongitude=position.coords.longitude
-              // latitudeAndLongitude.innerHTML="Latitude: " + position.coords.latitude +
-              // "<br>Longitude: " + position.coords.longitude;
-             //  var geocoder = new google.maps.Geocoder();
-             //  var latLng = new google.maps.LatLng(location.latitude, location.longitude);
-             // if (geocoder) {
-                // geocoder.geocode({ 'latLng': latLng}, function (results, status) {
-                   // if (status == google.maps.GeocoderStatus.OK) {
-                   //   console.log(results[0].formatted_address);
-                   //   geoaddress=results[0].formatted_address;
-
-
+            
                       formdata={
                         "address" :address,
                         "wantus" :wantus,
@@ -572,14 +562,6 @@ label.control-label {
                         "geolatitude" :geolatitude,
                         "geoLongitude" :geoLongitude,
                       }
-                      $.ajax({
-                                      url: 'users.php',
-                                      dataType: 'text',
-                                      type: 'post',
-                                      contentType: 'application/x-www-form-urlencoded',
-                                      data: $(this).serialize(),
-
-                                  });
                       $.ajax({
                           type:"POST",
                           url : "https://dairy-tannic-justiceship.eu-gb.mybluemix.net/insertFeedBack",
@@ -617,25 +599,7 @@ label.control-label {
                           }
 
                         });
-
-                    // }
-                    // else {
-                    //   var dialog = new BootstrapDialog({
-                    //         title: 'Thank you !!!',
-                    //         message: 'failed to submit survey,<br> Please try again.!!!',
-                    //         type: BootstrapDialog.TYPE_DANGER,
-                    //         buttons: [{
-                    //             label: 'Close',
-                    //             action: function(dialogRef){
-                    //                 dialogRef.close();
-                    //             }
-                    //         }]
-                    //       });
-                    //  dialog.open();
-                    // }
-                 // });
-               // }
-            }
+                      }
 
         });
 });
