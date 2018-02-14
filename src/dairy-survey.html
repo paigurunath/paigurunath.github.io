@@ -549,13 +549,13 @@ label.control-label {
               geoLongitude=position.coords.longitude
               // latitudeAndLongitude.innerHTML="Latitude: " + position.coords.latitude +
               // "<br>Longitude: " + position.coords.longitude;
-              var geocoder = new google.maps.Geocoder();
-              var latLng = new google.maps.LatLng(location.latitude, location.longitude);
-             if (geocoder) {
-                geocoder.geocode({ 'latLng': latLng}, function (results, status) {
-                   if (status == google.maps.GeocoderStatus.OK) {
-                     console.log(results[0].formatted_address);
-                     geoaddress=results[0].formatted_address;
+             //  var geocoder = new google.maps.Geocoder();
+             //  var latLng = new google.maps.LatLng(location.latitude, location.longitude);
+             // if (geocoder) {
+                // geocoder.geocode({ 'latLng': latLng}, function (results, status) {
+                   // if (status == google.maps.GeocoderStatus.OK) {
+                   //   console.log(results[0].formatted_address);
+                   //   geoaddress=results[0].formatted_address;
 
 
                       formdata={
@@ -571,12 +571,11 @@ label.control-label {
                         "dailyconsumption" :dailyconsumption,
                         "geolatitude" :geolatitude,
                         "geoLongitude" :geoLongitude,
-                        "geoaddress" :geoaddress
                       }
 
                       var request = $.ajax({
                           type:"POST",
-                          url : "http://dairy-edentulous-radectomy.eu-gb.mybluemix.net/insertFeedBack",
+                          url : "http://3.209.31.197:8080/insertFeedBack",
                           headers: {'Content-Type': 'application/json'},
                           data:JSON.stringify(formdata),
                           dataType: 'json',
@@ -614,23 +613,23 @@ label.control-label {
                               });
                          dialog.open();
                         });
-                    }
-                    else {
-                      var dialog = new BootstrapDialog({
-                            title: 'Thank you !!!',
-                            message: 'failed to submit survey,<br> Please try again.!!!',
-                            type: BootstrapDialog.TYPE_DANGER,
-                            buttons: [{
-                                label: 'Close',
-                                action: function(dialogRef){
-                                    dialogRef.close();
-                                }
-                            }]
-                          });
-                     dialog.open();
-                    }
-                 });
-               }
+                    // }
+                    // else {
+                    //   var dialog = new BootstrapDialog({
+                    //         title: 'Thank you !!!',
+                    //         message: 'failed to submit survey,<br> Please try again.!!!',
+                    //         type: BootstrapDialog.TYPE_DANGER,
+                    //         buttons: [{
+                    //             label: 'Close',
+                    //             action: function(dialogRef){
+                    //                 dialogRef.close();
+                    //             }
+                    //         }]
+                    //       });
+                    //  dialog.open();
+                    // }
+                 // });
+               // }
             }
 
         });
