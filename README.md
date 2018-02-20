@@ -1,77 +1,71 @@
-# SHOP
+# [Start Bootstrap - Agency](https://startbootstrap.com/template-overviews/agency/)
 
-## Prerequisites
+[Agency](https://startbootstrap.com/template-overviews/agency/) is a one page agency portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, a responsive timeline, and a working PHP contact form.
 
-### Polymer CLI
+## Preview
 
-Install [polymer-cli](https://github.com/Polymer/polymer-cli):
+[![Agency Preview](https://startbootstrap.com/assets/img/templates/agency.jpg)](https://blackrockdigital.github.io/startbootstrap-agency/)
 
-    npm install -g polymer-cli
+**[View Live Preview](https://blackrockdigital.github.io/startbootstrap-agency/)**
 
-### Setup
+## Status
 
-    # Using CLI
-    mkdir shop
-    cd shop
-    polymer init shop
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-agency/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/startbootstrap-agency.svg)](https://www.npmjs.com/package/startbootstrap-agency)
+[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-agency.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-agency)
+[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-agency/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-agency)
+[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-agency/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-agency?type=dev)
 
-    # Or cloning direct from GitHub
-    git clone https://github.com/Polymer/shop.git
-    cd shop
-    bower install
+## Download and Installation
 
-## Start the development server
+To begin using this template, choose one of the following options to get started:
+* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/agency/)
+* Install via npm: `npm i startbootstrap-agency`
+* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-agency.git`
+* [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-agency)
 
-    polymer serve
+## Usage
 
-## Run web-component-tester tests
+### Basic Usage
 
-    polymer test
+After downloading, simply edit the HTML and CSS files included with the template in your favorite text editor to make changes. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
 
-## Build
+### Advanced Usage
 
-Build presets provide an easy way to define common build configurations in your `polymer.json` file. There are 3 build presets we put in `polymer.json` file in Shop:
+After installation, run `npm install` and then run `gulp dev` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
 
-**es5-bundled**
+#### Gulp Tasks
 
-- js: {minify: true, compile: true}
-- css: {minify: true}
-- html: {minify: true}
-- bundle: true
-- addServiceWorker: true
-- addPushManifest: true
-- insertPrefetchLinks: true
+- `gulp` the default task that builds everything
+- `gulp dev` browserSync opens the project in your default browser and live reloads when changes are made
+- `gulp sass` compiles SCSS files into CSS
+- `gulp minify-css` minifies the compiled CSS file
+- `gulp minify-js` minifies the themes JS file
+- `gulp copy` copies dependencies from node_modules to the vendor directory
 
-**es6-unbundled**
+## Bugs and Issues
 
-- js: {minify: true, compile: false}
-- css: {minify: true}
-- html: {minify: true}
-- bundle: false
-- addServiceWorker: true
-- addPushManifest: true
-- insertPrefetchLinks: true
+Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-agency/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/agency/).
 
-**es6-bundled**
+## Custom Builds
 
-- js: {minify: true, compile: false}
-- css: {minify: true}
-- html: {minify: true}
-- bundle: true
-- addServiceWorker: true
-- addPushManifest: true
-- insertPrefetchLinks: true
+You can hire Start Bootstrap to create a custom build of any template, or create something from scratch using Bootstrap. For more information, visit the **[custom design services page](https://startbootstrap.com/bootstrap-design-services/)**.
 
-Run the command to build the presets:
+## About
 
-    polymer build
+Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
 
-## Test the build
+* https://startbootstrap.com
+* https://twitter.com/SBootstrap
 
-Use `polymer serve` to serve a specific build preset of the app. For example:
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
 
-    polymer serve build/es5-bundled
+* http://davidmiller.io
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
 
-## Deploying
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-Our [production deployment of SHOP](https://shop.polymer-project.org/) is hosted on App Engine with Node.js. You can examine its configuration on the [app-engine-node branch](https://github.com/Polymer/shop/tree/app-engine-node) of this repository and [compare it with the master branch](https://github.com/Polymer/shop/pull/145).
+## Copyright and License
+
+Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-agency/blob/gh-pages/LICENSE) license.
