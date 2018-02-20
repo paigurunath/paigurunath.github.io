@@ -1,0 +1,555 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7fqbKs7q3h4LylTcuDg8l_Us_qP-yG0Y"
+type="text/javascript"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+<link href="css/dairy.css" rel="stylesheet" type="text/css" />
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+	<title>Dairy2Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+<style>
+.button_season {
+  font-size: 80% !important;
+width: 8.3333% !important;
+margin-left:  2% !important;
+width: auto !important;
+margin-bottom: 5px !important;
+  }
+  .bootstrap-iso .btn-default:hover, .bootstrap-iso .btn-default:focus, .bootstrap-iso .btn-default.focus, .bootstrap-iso .btn-default:active, .bootstrap-iso .btn-default.active, .bootstrap-iso .open > .dropdown-toggle.btn-default {
+    color: #ffff !important;
+    background-color: #337ab7 !important;
+    border-color: #adadad !important;
+}
+label.control-label {
+    font-weight: unset !important;
+}
+.row {
+    padding-top: 10px;
+}
+  </style>
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+	<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Dairy2Home</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://dairy2home.com">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#survey">Survey</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+   <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Welcome To Dairy2Home!</div>
+          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#survey">Take me to Survey</a>
+        </div>
+      </div>
+    </header>
+	
+	
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+    <!-- w3layouts -->
+           <tr>
+               <td width="100%" align="center" valign="top">
+      <!-- content -->
+                   <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="container top-header-left">
+            <tr><td height="80px" class="agileits_main_space"></td></tr>
+            <tr>
+              <td>
+         
+         <section id="survey">             
+    <div class="bootstrap-iso">
+     <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+       <div id="messageContainer" class="alert alert-warning"></div></div></div>
+      <div class="row">
+       <div class="col-md-12 col-sm-12 col-xs-12">
+         <div class="form-group">
+           <div class="btn-group col-xs-3">
+              <label class="control-label ">Preferred brand of milk: </label>
+            </div>
+          <div class="btn-group col-xs-9" data-toggle="buttons">
+            <label class="btn btn-default button_season">
+                <input type="checkbox"  class="brand_name"  value="Amul">Amul
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox"  class="brand_name" value="Warana">Warana
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox" class="brand_name"  value="Govardhan">Govardhan
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox" class="brand_name"  value="Gokul">Gokul
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox"  class="brand_name" value="aarey">Aarey
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox"  class="brand_name" value="Nandani">Nandani
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox" id="otherprefered" class="brand_name" value="Other">Others
+              </label>
+                <input class="hidden" id="otherpreferedbrand" type="text"/>
+
+            </div>
+         </div>
+</div>
+</div>
+<div class="row">
+ <div class="col-md-12 col-sm-12 col-xs-12">
+   <div class="form-group ">
+    <div class="btn-group col-xs-3">
+    <label class="control-label " for="dailymilkConsumption">Daily Milk consumption: </label>
+    </div>
+    <div class="btn-group col-xs-9" data-toggle="buttons">
+      <label class="btn btn-default button_season active">
+          <input type="radio" class="dailyconsumption" value="0.5">0.5 ltr
+        </label>
+        <label class="btn btn-default button_season">
+            <input type="radio" class="dailyconsumption" value="1">1 ltr
+        </label>
+        <label class="btn btn-default button_season">
+            <input type="radio" class="dailyconsumption" value="1.5">1.5
+        </label>
+        <label class="btn btn-default button_season">
+            <input type="radio" class="dailyconsumption"  value="2">2 ltr
+        </label>
+        <label class="btn btn-default button_season">
+            <input type="radio" class="dailyconsumption" value="gt2">More then 2 ltr
+        </label>
+      </div>
+   </div>
+ </div>
+ </div>
+ <div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="form-group">
+          <div class="btn-group col-xs-3">
+             <label class="control-label">Consumption of other milk products: </label>
+           </div>
+         <div class="btn-group col-xs-9" data-toggle="buttons">
+           <label class="btn btn-default button_season">
+               <input type="checkbox" class="otherconsumption"  value="Curd">Curd
+             </label>
+             <label class="btn btn-default button_season">
+                 <input type="checkbox" class="otherconsumption" value="Butter_milk">Butter milk
+             </label>
+             <label class="btn btn-default button_season">
+                 <input type="checkbox" class="otherconsumption" value="paneer">Paneer
+             </label>
+                   <label class="btn btn-default button_season">
+                 <input type="checkbox" class="otherconsumption" value="Chease">Chease
+             </label>
+         </div>
+        </div>
+  </div>
+  </div>
+<div class="row">
+ <div class="col-md-12 col-sm-12 col-xs-12">
+   <div class="form-group">
+           <div class="btn-group col-xs-3">
+             <label class="control-label">Would you like to buy online Veggies or Fruit: </label>
+           </div>
+          <div class="btn-group col-xs-9" data-toggle="buttons">
+            <label class="btn btn-default button_season">
+                <input type="radio" class="veggies" value="yes">Yes
+              </label>
+              <label class="btn btn-default button_season active">
+                  <input type="radio" class="veggies" value="no">No
+              </label>
+          </div>
+         </div>
+ </div>
+ </div>
+
+
+
+  <div class="row">
+   <div class="col-md-12 col-sm-12 col-xs-12">
+     <div class="form-group ">
+          <div class="btn-group col-xs-3">
+         <label class="control-label ">Availing online service for milk: </label>
+         </div>
+         <div class="btn-group col-xs-9" data-toggle="buttons">
+           <label class="btn btn-default button_season">
+               <input type="radio" class="alreadyservedonline"  value="yes">Yes
+             </label>
+             <label class="btn btn-default button_season active">
+                 <input type="radio" class="alreadyservedonline" value="no">No
+             </label>
+         </div>
+        </div>
+   </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="form-group ">
+           <div class="btn-group col-xs-3">
+         <label class="control-label">Preferred payment duration: </label>
+          </div>
+         <div class="btn-group col-xs-9" data-toggle="buttons">
+           <label class="btn btn-default button_season">
+               <input type="checkbox" class="payperiod" value="Weekly">Weekly
+             </label>
+             <label class="btn btn-default button_season">
+                 <input type="checkbox" class="payperiod" value="15days">15 days
+             </label>
+             <label class="btn btn-default button_season">
+                 <input type="checkbox" class="payperiod" value="Monthly">Monthly
+             </label>
+           </div>
+         </div>
+    </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+       <div class="form-group ">
+            <div class="btn-group col-xs-3">
+          <label class="control-label">Which payment mode you to like: </label>
+            </div>
+          <div class="btn-group col-xs-9" data-toggle="buttons">
+            <label class="btn btn-default button_season">
+                <input type="checkbox" class="paymode" value="Paytm">Paytm
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox" class="paymode" value="upi">UPI/BUIM/Tez/PhonePe
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox" class="paymode" value="banking">Netbanking/Card
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="checkbox" class="paymode" value="Cash">Cash
+              </label>
+            </div>
+          </div>
+     </div>
+     </div>
+
+
+
+       <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group ">
+           <div class="btn-group col-xs-3">
+          <label class="control-label " for="text">Distance of the nearest milk booth: </label>
+          </div>
+          <div class="btn-group col-xs-9" data-toggle="buttons">
+            <label class="btn btn-default button_season active">
+                <input type="radio" class="distance" value="200m">200 M
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="radio" class="distance"  value="500m">500 M
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="radio" class="distance"  value="1km">1 KM
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="radio" class="distance"  value="gt1km">more then 1 KM
+              </label>
+            </div>
+         </div>
+        </div>
+        </div>
+
+        <div class="row">
+         <div class="col-md-12 col-sm-12 col-xs-12">
+           <div class="form-group ">
+           <div class="btn-group col-xs-3">
+          <label class="control-label ">Are you ready to take service from us:</label>
+          </div>
+          <div class="btn-group col-xs-9" data-toggle="buttons">
+            <label class="btn btn-default button_season active">
+                <input type="radio" class="wantus" checked="" value="yes">Yes
+              </label>
+              <label class="btn btn-default button_season">
+                  <input type="radio" class="wantus" value="no">No
+              </label>
+          </div>
+
+         </div>
+         </div>
+         </div>
+         <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group ">
+                 <div class="btn-group col-xs-3">
+              <label class="control-label " for="address">
+               Address
+              </label>
+              </div>
+               <div class="btn-group col-xs-8" style="padding-left: 3.3%;">
+              <input class="form-control address" id="address" type="text"/>
+             </div> </div>
+          </div>
+          </div>
+         <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="form-group">
+             <div class="btn-group text-center">
+              <button class="btn btn-primary " id="submitsurvey" style="    margin-bottom: 10px;" name="submit" type="submit">
+               Submit
+              </button>
+             </div>
+            </div>
+          </div>
+          </div>
+          </div>
+
+    </div>
+	  </section>
+   <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <span class="copyright">Copyright &copy; dairy2home 2018</span>
+          </div>
+          <!--<div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </footer>
+   
+    </td>
+    </tr>
+    <tr><td height="80px" class="agileits_main_space"></td></tr>
+    </table>
+    <!-- content -->
+    </td>
+    </tr>
+    </table>
+    </body>
+    </html>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#messageContainer").fadeOut();
+        $("#otherprefered").change(function(){
+          $("#otherpreferedbrand").toggleClass('hidden')
+        });
+      $("button#submitsurvey").click(function(){
+          var geolatitude
+          var geoLongitude
+          var geoaddress;
+          var formdata={};
+          var prefbrand = [];
+           var ele=document.querySelectorAll(".btn-group > label.active > input.brand_name");
+           for(var i=0; i<ele.length; i++){
+             if(ele[i].value=='Other'){
+               prefbrand.push("Other : "+$("#otherpreferedbrand")[0].value);
+             }else{
+                 prefbrand.push(ele[i].value);
+             }
+           }
+           var dailyconsumption = '';
+           var ele=document.querySelectorAll(".btn-group > label.active > input.dailyconsumption");
+           for(var i=0; i<ele.length; i++){
+             dailyconsumption=ele[i].value;
+           }
+           var otherconsumption = [];
+           var ele=document.querySelectorAll(".btn-group > label.active > input.otherconsumption");
+           for(var i=0; i<ele.length; i++){
+             otherconsumption.push(ele[i].value);
+           }
+           var veggies = '';
+           var ele=document.querySelectorAll(".btn-group > label.active > input.veggies");
+           for(var i=0; i<ele.length; i++){
+             veggies=ele[i].value;
+           }
+           var alreadyservedonline = '';
+           var ele=document.querySelectorAll(".btn-group > label.active > input.alreadyservedonline");
+           for(var i=0; i<ele.length; i++){
+             alreadyservedonline=ele[i].value;
+           }
+           var payperiod = [];
+           var ele=document.querySelectorAll(".btn-group > label.active > input.payperiod");
+           for(var i=0; i<ele.length; i++){
+             payperiod.push(ele[i].value);
+           }
+           var paymode = [];
+           var ele=document.querySelectorAll(".btn-group > label.active > input.paymode");
+           for(var i=0; i<ele.length; i++){
+               paymode.push(ele[i].value);
+           }
+           var distance = '';
+           var ele=document.querySelectorAll(".btn-group > label.active > input.distance");
+           for(var i=0; i<ele.length; i++){
+             distance=ele[i].value;
+           }
+           var wantus = '';
+           var ele=document.querySelectorAll(".btn-group > label.active > input.wantus");
+           for(var i=0; i<ele.length; i++){
+             wantus=ele[i].value;
+           }
+           var address = '';
+           var ele=document.querySelectorAll(".btn-group > input.form-control");
+           for(var i=0; i<ele.length; i++){
+             address=ele[i].value;
+           }
+           if( prefbrand.length== 0 ) {
+             $('#messageContainer').text('Please select preffered brand of milk');
+             $("#messageContainer").show().delay(5000).fadeOut();
+             return;
+            }else if (otherconsumption.length== 0) {
+              $('#messageContainer').text('Please select otrh milk products');
+              $("#messageContainer").show().delay(5000).fadeOut();
+              return;
+            }else if (payperiod.length== 0) {
+              $('#messageContainer').text('Please select preferred payment duration');
+              $("#messageContainer").show().delay(5000).fadeOut();
+              return;
+            }else if (paymode.length== 0) {
+              $('#messageContainer').text('Please select payment mode you like');
+              $("#messageContainer").show().delay(5000).fadeOut();
+              return;
+            }
+          var latitudeAndLongitude=document.getElementById("latitudeAndLongitude"),
+          location={latitude:'',longitude:''};
+          if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+          }
+          else{
+            latitudeAndLongitude.innerHTML="Geolocation is not supported by this browser.";
+          }
+
+          function showPosition(position){
+              location.latitude=position.coords.latitude;
+              location.longitude=position.coords.longitude;
+              geolatitude=position.coords.latitude
+              geoLongitude=position.coords.longitude
+            
+                      formdata={
+                        "address" :address,
+                        "wantus" :wantus,
+                        "distance" :distance,
+                        "paymode" :paymode,
+                        "payperiod" :payperiod,
+                        "alreadyservedonline" :alreadyservedonline,
+                        "veggies" :veggies,
+                        "otherconsumption" :otherconsumption,
+                        "prefbrand" :prefbrand,
+                        "dailyconsumption" :dailyconsumption,
+                        "geolatitude" :geolatitude,
+                        "geoLongitude" :geoLongitude,
+                      }
+                      $.ajax({
+                          type:"POST",
+                          url : "https://dairy-tannic-justiceship.eu-gb.mybluemix.net/insertFeedBack",
+                          headers: {'Content-Type': 'application/json'},
+                          data:JSON.stringify(formdata),
+                          dataType: 'json',
+                          success: function( data, textStatus, jQxhr ){
+                            console.log("success to request"+data);
+                            var dialog = new BootstrapDialog({
+                                  title: 'Thank you !!!',
+                                  message: 'Thank you for taking the time to complete this survey. We truly value the information you have provided. Your responses will contribute to our analyses of the texts and suggest new lines of approach to the corpus data.!!!',
+                                  type: BootstrapDialog.TYPE_SUCCESS,
+                                  buttons: [{
+                                      label: 'Close',
+                                      action: function(dialogRef){
+                                          dialogRef.close();
+                                      }
+                                  }]
+                                });
+                           dialog.open();
+                          },
+                          error: function( jqXhr, textStatus, errorThrown ){
+                            var dialog = new BootstrapDialog({
+                                  title: 'Failed !!!',
+                                  message: 'Failed to submit survey,<br> Please try again.!!!',
+                                  type: BootstrapDialog.TYPE_DANGER,
+                                  buttons: [{
+                                      label: 'Close',
+                                      action: function(dialogRef){
+                                          dialogRef.close();
+                                      }
+                                  }]
+                                });
+                           dialog.open();
+                          }
+
+                        });
+                      }
+
+        });
+});
+          </script>
+    <!-- Bootstrap core JavaScript
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
