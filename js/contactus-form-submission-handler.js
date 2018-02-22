@@ -69,10 +69,26 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
   }
   */
 
-  if( !validEmail(data.email) ) {   // if email is not valid show error
-    document.getElementById('email-invalid').style.display = 'block';
-    return false;
-  } else {
+  $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
+    preventSubmit: true,
+    submitError: function($form, event, errors) {
+      // additional error messages or events
+    },
+    submitSuccess: function($form, event) {
+      event.preventDefault(); // prevent default submit behaviour
+      // get values from FORM
+      var name = $("input#name").val();
+      var email = $("input#email").val();
+      var phone = $("input#phone").val();
+      var message = $("textarea#message").val();
+      var firstName = name; // For Success/Failure Message
+      // Check for white space in name for Success/Fail message
+      if (firstName.indexOf(' ') >= 0) {
+        firstName = name.split(' ').slice(0, -1).join(' ');
+      }
+      $this = $("#sendMessageButton");
+      $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
+	  
     var url = event.target.action;  //
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
@@ -90,7 +106,11 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&')
     xhr.send(encoded);
-  }
+  },
+    filter: function() {
+      return $(this).is(":visible");
+    },
+  });
 }
 function loaded() {
   console.log('contact form submission handler loaded successfully');
