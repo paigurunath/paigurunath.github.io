@@ -97,8 +97,16 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
     xhr.onreadystatechange = function() {
         console.log( xhr.status, xhr.statusText )
         console.log(xhr.responseText);
-        document.getElementById('contactForm').style.display = 'none'; // hide form
-        document.getElementById('thankyou_message').style.display = 'block';
+        // Success message
+          $('#success').html("<div class='alert alert-success'>");
+          $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+            .append("</button>");
+          $('#success > .alert-success')
+            .append("<strong>Your message has been sent. </strong>");
+          $('#success > .alert-success')
+            .append('</div>');
+          //clear all fields
+          $('#contactForm').trigger("reset");
         return;
     };
     // url encode form data for sending as post data
