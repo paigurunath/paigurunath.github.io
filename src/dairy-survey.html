@@ -8,7 +8,7 @@ type="text/javascript"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script> -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
-<link href="css/dairy.css" rel="stylesheet" type="text/css" />
+<link href="../css/dairy.css" rel="stylesheet" type="text/css" />
     <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 	<title>Dairy2Home</title>
@@ -22,7 +22,7 @@ type="text/javascript"></script>
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+	<script src="../js/survey-form-submission-handler.js"></script>
     <!-- Custom styles for this template -->
     <link href="../css/agency.min.css" rel="stylesheet">
 <style>
@@ -385,6 +385,8 @@ label.control-label {
     </td>
     </tr>
     </table>
+	 <form id="surveyForm" name="surveyForm" novalidate action="'https://script.google.com/macros/s/AKfycbzeLAsQtevlHSvkltNW5AOekVXYmr1Fp8P0Z_Vb4063eC_MpIXw/exec">
+	 </form>
     </body>
     </html>
 
@@ -507,6 +509,13 @@ label.control-label {
                           dataType: 'json',
                           success: function( data, textStatus, jQxhr ){
                             console.log("success to request"+data);
+							$('#surveyForm').append("<input class=\"form-control\" id=\"address\" name=\"address\" type=\"text\" value="+formdata.address+"><input class=\"form-control\" id=\"veggies\" name=\"veggies\" type=\"text\" value="+formdata.veggies+"><input class=\"form-control\" id=\"wantus\" name=\"wantus\" type=\"text\" value="+formdata.wantus+"><input class=\"form-control\" id=\"distance\" name=\"distance\" type=\"text\" value="+formdata.distance+"><input class=\"form-control\" id=\"paymode\" name=\"paymode\" type=\"text\" value="+formdata.paymode+"><input class=\"form-control\" id=\"payperiod\" name=\"payperiod\" type=\"text\" value="+formdata.payperiod+"><input class=\"form-control\" id=\"alreadyservedonline\" name=\"alreadyservedonline\" type=\"text\" value="+formdata.alreadyservedonline+"><input class=\"form-control\" id=\"otherconsumption\" name=\"otherconsumption\" type=\"text\" value="+formdata.otherconsumption+"><input class=\"form-control\" id=\"prefbrand\" name=\"prefbrand\" type=\"text\" value="+formdata.prefbrand+"><input class=\"form-control\" id=\"dailyconsumption\" name=\"dailyconsumption\" type=\"text\" value="+formdata.dailyconsumption+"><input class=\"form-control\" id=\"geolatitude\" name=\"geolatitude\" type=\"text\" value="+formdata.geolatitude+"><input class=\"form-control\" id=\"geoLongitude\" name=\"geoLongitude\" type=\"text\" value="+formdata.geoLongitude+"> <button id=\"sendMessageButton\" class=\"btn btn-primary btn-xl text-uppercase\" type=\"submit\">Send Message</button>");
+							
+							$('#sendMessageButton').click();
+							
+							//form.addEventListener("submit", handleFormSubmit, false);
+							//form.submit();
+							
                             var dialog = new BootstrapDialog({
                                   title: 'Thank you !!!',
                                   message: 'Thank you for taking the time to complete this survey. We truly value the information you have provided. Your responses will contribute to our analyses of the texts and suggest new lines of approach to the corpus data.!!!',
