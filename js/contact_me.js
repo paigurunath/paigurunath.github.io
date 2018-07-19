@@ -20,16 +20,17 @@ $(function() {
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
       $.ajax({
-        url: "././mail/contact_me.php",
+        url: "https://grometry-api.cfapps.io/secure/api/saveContactUs",
         type: "POST",
         data: {
+          type: "contact thrugh website",
           name: name,
-          phone: phone,
+          mobile: phone,
           email: email,
-          message: message
+          message: "user Name : "+name+", message : "+message
         },
         cache: false,
-        success: function() {
+        success: function(e) {
           // Success message
           $('#success').html("<div class='alert alert-success'>");
           $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -41,7 +42,7 @@ $(function() {
           //clear all fields
           $('#contactForm').trigger("reset");
         },
-        error: function() {
+        error: function(err) {
           // Fail message
           $('#success').html("<div class='alert alert-danger'>");
           $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
