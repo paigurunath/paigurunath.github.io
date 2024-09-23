@@ -465,6 +465,7 @@
     <div class="section-title">
       <h2>Resume</h2>
       <p>Check My Resume</p>
+      <button id="downloadBtn">Download PDF</button>
     </div>
     <div class="row">
       
@@ -846,6 +847,27 @@
       form.querySelector('.error-message').innerHTML = 'Form submission failed and no error message returned from: ';
       form.querySelector('.error-message').classList.add('d-block');
     });
+  });
+</script>
+
+<script>
+  document.getElementById("downloadBtn").addEventListener("click", function () {
+      // Replace with the URL of your PDF file
+      const pdfUrl = 'https://raw.githubusercontent.com/paigurunath/paigurunath.github.io/master/resume/resume2024.pdf';
+
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'resume-Guru.pdf'; // Optional: rename file on download
+
+      // Append the link to the body (required for Firefox)
+      document.body.appendChild(link);
+
+      // Programmatically click the link to trigger the download
+      link.click();
+
+      // Remove the link after triggering the download
+      document.body.removeChild(link);
   });
 </script>
 </body>
