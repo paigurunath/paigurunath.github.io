@@ -1,0 +1,152 @@
+/* General styles */
+body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header styles */
+header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1877f2;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav a {
+    color: #1c1e21;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #1877f2;
+}
+
+
+/* Main content styles */
+.blog-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.blog-sidebar {
+    flex: 0 0 280px;
+}
+
+.blog-main {
+    flex: 1;
+}
+
+#blog-list {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#blog-list h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #1877f2;
+    border-bottom: 2px solid #1877f2;
+    padding-bottom: 0.5rem;
+}
+
+#blog-links {
+    list-style: none;
+    padding: 0;
+}
+
+#blog-links li {
+    margin-bottom: 0.5rem;
+}
+
+.blog-link {
+    display: block;
+    color: #1c1e21;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-link:hover {
+    background-color: #e9f2ff;
+    color: #1877f2;
+}
+
+.blog-link.active {
+    background-color: #1877f2;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+#blog-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles */
+footer {
+    background-color: #ffffff;
+    color: #606770;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .blog-container {
+        flex-direction: column;
+    }
+
+    .blog-sidebar {
+        flex: 0 0 auto;
+    }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learnings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">My Learnings</a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="blog-container">
+            <aside class="blog-sidebar">
+                <section id="blog-list">
+                    <h2>Recent Posts</h2>
+                    <ul id="blog-links">
+                    </ul>
+                </section>
+            </aside>
+            <article class="blog-main">
+                <section id="blog-content" class="markdown-body">
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Gurunath Pai. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const blogContent = document.getElementById('blog-content');
+        const blogLinksContainer = document.getElementById('blog-links');
+        let blogs = [];
+
+        async function loadBlog(blogId) {
+            const blog = blogs.find(b => b.id === blogId);
+            if (blog) {
+                const response = await fetch(blog.file);
+                const markdown = await response.text();
+                blogContent.innerHTML = marked.parse(markdown);
+
+                document.querySelectorAll('.blog-link').forEach(link => {
+                    if (link.dataset.blog === blogId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        blogLinksContainer.addEventListener('click', (event) => {
+            event.preventDefault();
+            const blogId = event.target.dataset.blog;
+            if (blogId) {
+                loadBlog(blogId);
+                window.scrollTo(0, 0);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('blogs.json');
+            blogs = await response.json();
+
+            blogs.forEach(blog => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.dataset.blog = blog.id;
+                a.classList.add('blog-link');
+                a.textContent = blog.title;
+                li.appendChild(a);
+                blogLinksContainer.appendChild(li);
+            });
+
+            if (blogs.length > 0) {
+                loadBlog(blogs[0].id);
+            }
+        });
+    </script>
+</body>
+</html>

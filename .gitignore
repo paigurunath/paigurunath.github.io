@@ -1,1 +1,6 @@
-node_modules
+.idea/
+.venv/
+external libraries/
+server.py
+__pycache__/server.cpython-312.pyc
+arch-images/salesforce3.drawio.xml
