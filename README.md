@@ -7,7 +7,7 @@ Focus areas:
 - Architecting intelligent, data-driven solutions using AI.
 - Executing seamless cloud migrations and modernizing legacy systems for improved performance.
 - Ensuring architectural excellence and financial accountability via AWS Well-Architected Reviews and FinOps practices.
-- DArchitect and implement proof-of-concept prototypes using emerging technologies.
+- Data Architect and implement proof-of-concept prototypes using emerging technologies.
 
 You can find more information about me in my [Manual of me](ManualOfMe.md). 
 
@@ -48,7 +48,7 @@ Architected and deployed an automated recommendation engine by integrating Sales
 **Architecture explanation (Salesforce-integrated deployment):**  
 This design keeps the external entry path separate from the core chatbot workload by using a dedicated integration VPC and PrivateLink. Traffic then moves into a main workload VPC where ECS Fargate services run across two availability zones for higher availability. The data layer is split by access pattern: DynamoDB for fast session state, Aurora PostgreSQL for knowledge retrieval, and S3 for object storage. CloudWatch provides centralized observability, and downstream applications consume chatbot outputs for business workflows.
 
-**Numbered components and why they help the architecture:**
+**Numbered components and why they help the architecture:**<br>
 **1. User request from Salesforce UI:** Users trigger chatbot requests from the Salesforce context. This improves adoption by keeping the workflow in tools already used by the sales team.
 
 **2. API Gateway:** API Gateway is the front door for request validation, throttling, and controlled API access. This standardizes ingress security and protects backend services.
