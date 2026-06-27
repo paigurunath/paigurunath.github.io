@@ -1,0 +1,94 @@
+<svg viewBox="0 0 850 320" width="100%" xmlns="http://www.w3.org/2000/svg" style="background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#47a1ff" />
+      <stop offset="100%" stop-color="#1877f2" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8f9fa" />
+    </linearGradient>
+    <!-- Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Connection Lines with Arrows -->
+  <!-- 1. Telegram Mobile to Bot API (HTTPS Link) -->
+  <path d="M 160 160 L 250 160" stroke="#ea580c" stroke-width="2.5" fill="none" stroke-dasharray="5 5" />
+  <path d="M 250 160 L 242 155 M 250 160 L 242 165" stroke="#ea580c" stroke-width="2.5" fill="none" />
+  
+  <!-- 2. Bot API to OpenClaw (Webhook / Long Polling) -->
+  <path d="M 370 160 L 440 160" stroke="#059669" stroke-width="2.5" fill="none" />
+  <path d="M 440 160 L 432 155 M 440 160 L 432 165" stroke="#059669" stroke-width="2.5" fill="none" />
+  <path d="M 440 170 L 370 170" stroke="#059669" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
+  <path d="M 370 170 L 378 165 M 370 170 L 378 175" stroke="#059669" stroke-width="1.5" fill="none" />
+
+  <!-- 3. OpenClaw to Ollama (Local API: Port 11434) -->
+  <path d="M 580 165 L 650 165" stroke="#1877f2" stroke-width="2.5" fill="none" />
+  <path d="M 650 165 L 642 160 M 650 165 L 642 170" stroke="#1877f2" stroke-width="2.5" fill="none" />
+  <path d="M 650 175 L 580 175" stroke="#1877f2" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
+  <path d="M 580 175 L 588 170 M 580 175 L 588 180" stroke="#1877f2" stroke-width="1.5" fill="none" />
+
+  <!-- Localhost Boundary Box (MacBook M1 Pro) -->
+  <rect x="420" y="40" width="410" height="240" rx="16" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="435" y="65" fill="#57606a" font-family="Outfit, sans-serif" font-size="11" font-weight="700" letter-spacing="1">LOCAL HOST (MACBOOK M1 PRO)</text>
+
+  <!-- Node 1: Telegram Mobile -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="130" height="180" rx="14" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
+    <rect x="35" y="75" width="120" height="130" rx="8" fill="#f6f8fa" stroke="#e1e4e8" />
+    
+    <!-- Telegram Mock Bubbles -->
+    <rect x="45" y="85" width="70" height="24" rx="6" fill="#1877f2" />
+    <text x="52" y="100" fill="#ffffff" font-family="Inter, sans-serif" font-size="9" font-weight="500">What is 2+2?</text>
+    
+    <rect x="75" y="115" width="70" height="24" rx="6" fill="#e9f2ff" stroke="rgba(24, 119, 242, 0.15)" />
+    <text x="82" y="130" fill="#1877f2" font-family="Inter, sans-serif" font-size="9" font-weight="600">It is 4.</text>
+    
+    <circle cx="95" cy="225" r="14" fill="#1877f2" />
+    <!-- Telegram Arrow Icon -->
+    <path d="M 90 225 L 102 219 L 98 231 L 96 226 Z" fill="#ffffff" />
+    <text x="95" y="248" fill="#24292f" font-family="Outfit, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Telegram App</text>
+  </g>
+
+  <!-- Node 2: Telegram Bot API (Cloud) -->
+  <g filter="url(#shadow)">
+    <rect x="250" y="110" width="120" height="100" rx="12" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
+    <circle cx="310" cy="145" r="18" fill="url(#orangeGrad)" />
+    <!-- Cloud shape inside -->
+    <path d="M 302 150 Q 296 150 296 144 Q 296 138 304 138 Q 306 132 313 132 Q 320 132 322 138 Q 328 138 328 144 Q 328 150 322 150 Z" fill="#ffffff" />
+    <text x="310" y="185" fill="#24292f" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Telegram API</text>
+    <text x="310" y="198" fill="#57606a" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">HTTPS / Cloud</text>
+  </g>
+
+  <!-- Node 3: OpenClaw Gateway -->
+  <g filter="url(#shadow)">
+    <rect x="440" y="110" width="140" height="100" rx="12" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
+    <rect x="495" y="125" width="30" height="30" rx="6" fill="url(#greenGrad)" />
+    <path d="M 502 140 Q 510 130 518 140" stroke="#ffffff" stroke-width="2" fill="none" />
+    <circle cx="510" cy="140" r="3" fill="#ffffff" />
+    <text x="510" y="175" fill="#24292f" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">OpenClaw Gateway</text>
+    <text x="510" y="190" fill="#57606a" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Local Node Daemon</text>
+  </g>
+
+  <!-- Node 4: Ollama Local Server -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="110" width="140" height="100" rx="12" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
+    <rect x="715" y="125" width="30" height="30" rx="6" fill="url(#blueGrad)" />
+    <path d="M 723 148 L 726 135 L 730 135 L 733 148 Z" fill="#ffffff" />
+    <circle cx="730" cy="142" r="2" fill="#1877f2" />
+    <text x="730" y="175" fill="#24292f" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Ollama Local API</text>
+    <text x="730" y="190" fill="#57606a" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Port 11434 / REST</text>
+  </g>
+</svg>
