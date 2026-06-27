@@ -1,5 +1,9 @@
-<svg viewBox="0 0 850 320" width="100%" xmlns="http://www.w3.org/2000/svg" style="background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+<svg viewBox="0 0 920 480" width="100%" xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); font-family: 'Inter', -apple-system, sans-serif;">
   <defs>
+    <!-- Dot Grid Blueprint Background -->
+    <pattern id="dotGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#cbd5e1" opacity="0.6" />
+    </pattern>
     <!-- Gradients -->
     <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#47a1ff" />
@@ -13,82 +17,214 @@
       <stop offset="0%" stop-color="#fb923c" />
       <stop offset="100%" stop-color="#ea580c" />
     </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
     <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" />
       <stop offset="100%" stop-color="#f8f9fa" />
     </linearGradient>
     <!-- Drop Shadow -->
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
     </filter>
   </defs>
 
-  <!-- Connection Lines with Arrows -->
-  <!-- 1. Telegram Mobile to Bot API (HTTPS Link) -->
-  <path d="M 160 160 L 250 160" stroke="#ea580c" stroke-width="2.5" fill="none" stroke-dasharray="5 5" />
-  <path d="M 250 160 L 242 155 M 250 160 L 242 165" stroke="#ea580c" stroke-width="2.5" fill="none" />
-  
-  <!-- 2. Bot API to OpenClaw (Webhook / Long Polling) -->
-  <path d="M 370 160 L 440 160" stroke="#059669" stroke-width="2.5" fill="none" />
-  <path d="M 440 160 L 432 155 M 440 160 L 432 165" stroke="#059669" stroke-width="2.5" fill="none" />
-  <path d="M 440 170 L 370 170" stroke="#059669" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
-  <path d="M 370 170 L 378 165 M 370 170 L 378 175" stroke="#059669" stroke-width="1.5" fill="none" />
-
-  <!-- 3. OpenClaw to Ollama (Local API: Port 11434) -->
-  <path d="M 580 165 L 650 165" stroke="#1877f2" stroke-width="2.5" fill="none" />
-  <path d="M 650 165 L 642 160 M 650 165 L 642 170" stroke="#1877f2" stroke-width="2.5" fill="none" />
-  <path d="M 650 175 L 580 175" stroke="#1877f2" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
-  <path d="M 580 175 L 588 170 M 580 175 L 588 180" stroke="#1877f2" stroke-width="1.5" fill="none" />
+  <!-- Grid Pattern Fill -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" rx="16" />
 
   <!-- Localhost Boundary Box (MacBook M1 Pro) -->
-  <rect x="420" y="40" width="410" height="240" rx="16" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5" filter="url(#shadow)" />
-  <text x="435" y="65" fill="#57606a" font-family="Outfit, sans-serif" font-size="11" font-weight="700" letter-spacing="1">LOCAL HOST (MACBOOK M1 PRO)</text>
+  <rect x="380" y="30" width="510" height="370" rx="16" fill="rgba(255,255,255,0.9)" stroke="#94a3b8" stroke-width="2" filter="url(#shadow)" />
+  <!-- Title Badge for Localhost -->
+  <rect x="380" y="30" width="310" height="32" rx="16" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5" />
+  <circle cx="400" cy="46" r="6" fill="#f43f5e" />
+  <circle cx="414" cy="46" r="6" fill="#eab308" />
+  <circle cx="428" cy="46" r="6" fill="#22c55e" />
+  <text x="445" y="51" fill="#475569" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">LOCAL HOST (MACBOOK M1 PRO)</text>
 
-  <!-- Node 1: Telegram Mobile -->
+  <!-- Connection Lines with Arrows -->
+  <!-- 1. Telegram Mobile to Bot API (HTTPS WAN) -->
+  <path d="M 150 190 L 220 190" stroke="#ea580c" stroke-width="2.5" fill="none" stroke-dasharray="6 4" />
+  <path d="M 220 190 L 212 185 M 220 190 L 212 195" stroke="#ea580c" stroke-width="2.5" fill="none" />
+  <text x="185" y="180" fill="#ea580c" font-size="9" font-weight="700" text-anchor="middle">HTTPS WAN</text>
+
+  <!-- 2. Bot API to OpenClaw (Webhook / Long Polling) -->
+  <path d="M 330 170 L 410 170" stroke="#059669" stroke-width="2.5" fill="none" />
+  <path d="M 410 170 L 402 165 M 410 170 L 402 175" stroke="#059669" stroke-width="2.5" fill="none" />
+  <path d="M 410 185 L 330 185" stroke="#059669" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
+  <path d="M 330 185 L 338 180 M 330 185 L 338 190" stroke="#059669" stroke-width="1.5" fill="none" />
+  <text x="370" y="160" fill="#059669" font-size="9" font-weight="700" text-anchor="middle">Long-Poll / JSON</text>
+
+  <!-- 3. OpenClaw to Ollama (Local Loopback API: Port 11434) -->
+  <path d="M 590 170 L 660 170" stroke="#1877f2" stroke-width="2.5" fill="none" />
+  <path d="M 660 170 L 652 165 M 660 170 L 652 175" stroke="#1877f2" stroke-width="2.5" fill="none" />
+  <path d="M 660 185 L 590 185" stroke="#1877f2" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
+  <path d="M 590 185 L 598 180 M 590 185 L 598 190" stroke="#1877f2" stroke-width="1.5" fill="none" />
+  <text x="625" y="155" fill="#1877f2" font-size="9" font-weight="700" text-anchor="middle">HTTP Port 11434</text>
+  <text x="625" y="165" fill="#1877f2" font-size="8" font-weight="500" text-anchor="middle">Local loopback</text>
+
+  <!-- 4. Ollama to GPU Hardware Acceleration -->
+  <path d="M 765 240 L 765 280" stroke="#7c3aed" stroke-width="2.5" fill="none" />
+  <path d="M 765 280 L 760 272 M 765 280 L 770 272" stroke="#7c3aed" stroke-width="2.5" fill="none" />
+  <text x="772" y="265" fill="#7c3aed" font-size="9" font-weight="700" text-anchor="start">Metal API</text>
+
+  <!-- NODE 1: Telegram Mobile App -->
   <g filter="url(#shadow)">
-    <rect x="30" y="70" width="130" height="180" rx="14" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
-    <rect x="35" y="75" width="120" height="130" rx="8" fill="#f6f8fa" stroke="#e1e4e8" />
+    <rect x="20" y="80" width="130" height="230" rx="18" fill="url(#nodeGrad)" stroke="#cbd5e1" stroke-width="2" />
+    <!-- Speaker Bezel -->
+    <rect x="65" y="90" width="40" height="4" rx="2" fill="#94a3b8" />
+    <rect x="25" y="102" width="120" height="175" rx="8" fill="#f1f5f9" stroke="#e2e8f0" />
+    
+    <!-- Header Screen (Mock App Header) -->
+    <rect x="25" y="102" width="120" height="24" rx="0" fill="#1e293b" />
+    <text x="32" y="117" fill="#ffffff" font-size="8" font-weight="700">@GurunathLocalBot</text>
+    <circle cx="132" cy="114" r="2" fill="#22c55e" />
     
     <!-- Telegram Mock Bubbles -->
-    <rect x="45" y="85" width="70" height="24" rx="6" fill="#1877f2" />
-    <text x="52" y="100" fill="#ffffff" font-family="Inter, sans-serif" font-size="9" font-weight="500">What is 2+2?</text>
+    <!-- Query -->
+    <rect x="30" y="132" width="80" height="28" rx="6" fill="#1877f2" />
+    <text x="36" y="144" fill="#ffffff" font-size="8" font-weight="500">What is the capital</text>
+    <text x="36" y="154" fill="#ffffff" font-size="8" font-weight="500">of France?</text>
     
-    <rect x="75" y="115" width="70" height="24" rx="6" fill="#e9f2ff" stroke="rgba(24, 119, 242, 0.15)" />
-    <text x="82" y="130" fill="#1877f2" font-family="Inter, sans-serif" font-size="9" font-weight="600">It is 4.</text>
+    <!-- Response -->
+    <rect x="58" y="166" width="82" height="28" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5" />
+    <text x="64" y="178" fill="#1e293b" font-size="8" font-weight="500">The capital of</text>
+    <text x="64" y="188" fill="#1e293b" font-size="8" font-weight="600">France is Paris.</text>
     
-    <circle cx="95" cy="225" r="14" fill="#1877f2" />
-    <!-- Telegram Arrow Icon -->
-    <path d="M 90 225 L 102 219 L 98 231 L 96 226 Z" fill="#ffffff" />
-    <text x="95" y="248" fill="#24292f" font-family="Outfit, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Telegram App</text>
+    <circle cx="85" cy="254" r="16" fill="#1877f2" />
+    <!-- Telegram Icon representation -->
+    <path d="M 77 254 L 92 247 L 88 261 L 85 256 Z" fill="#ffffff" />
+    <text x="85" y="292" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="10" font-weight="800" text-anchor="middle">Telegram App</text>
+    <text x="85" y="302" fill="#64748b" font-size="8" text-anchor="middle">User Interface</text>
   </g>
 
-  <!-- Node 2: Telegram Bot API (Cloud) -->
+  <!-- NODE 2: Telegram Bot API Cloud -->
   <g filter="url(#shadow)">
-    <rect x="250" y="110" width="120" height="100" rx="12" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
-    <circle cx="310" cy="145" r="18" fill="url(#orangeGrad)" />
+    <rect x="210" y="120" width="120" height="130" rx="12" fill="url(#nodeGrad)" stroke="#cbd5e1" stroke-width="1.5" />
+    <!-- Window Bar -->
+    <path d="M 210 132 L 330 132" stroke="#e2e8f0" stroke-width="1" />
+    <circle cx="220" cy="126" r="3" fill="#cbd5e1" />
+    <circle cx="228" cy="126" r="3" fill="#cbd5e1" />
+    <circle cx="236" cy="126" r="3" fill="#cbd5e1" />
+    
+    <circle cx="270" cy="165" r="22" fill="url(#orangeGrad)" />
     <!-- Cloud shape inside -->
-    <path d="M 302 150 Q 296 150 296 144 Q 296 138 304 138 Q 306 132 313 132 Q 320 132 322 138 Q 328 138 328 144 Q 328 150 322 150 Z" fill="#ffffff" />
-    <text x="310" y="185" fill="#24292f" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Telegram API</text>
-    <text x="310" y="198" fill="#57606a" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">HTTPS / Cloud</text>
+    <path d="M 258 171 Q 250 171 250 163 Q 250 155 261 155 Q 263 147 273 147 Q 283 147 286 155 Q 294 155 294 163 Q 294 171 286 171 Z" fill="#ffffff" />
+    
+    <text x="270" y="212" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" text-anchor="middle">Telegram Cloud</text>
+    <text x="270" y="224" fill="#64748b" font-size="8.5" font-weight="500" text-anchor="middle">Bot API Gateway</text>
+    <text x="270" y="235" fill="#94a3b8" font-size="8" text-anchor="middle">HTTPS Webhooks</text>
   </g>
 
-  <!-- Node 3: OpenClaw Gateway -->
+  <!-- NODE 3: OpenClaw Daemon -->
   <g filter="url(#shadow)">
-    <rect x="440" y="110" width="140" height="100" rx="12" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
-    <rect x="495" y="125" width="30" height="30" rx="6" fill="url(#greenGrad)" />
-    <path d="M 502 140 Q 510 130 518 140" stroke="#ffffff" stroke-width="2" fill="none" />
-    <circle cx="510" cy="140" r="3" fill="#ffffff" />
-    <text x="510" y="175" fill="#24292f" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">OpenClaw Gateway</text>
-    <text x="510" y="190" fill="#57606a" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Local Node Daemon</text>
+    <rect x="400" y="80" width="190" height="160" rx="12" fill="url(#nodeGrad)" stroke="#059669" stroke-width="1.5" />
+    <!-- Window Header -->
+    <path d="M 400 96 L 590 96" stroke="#a7f3d0" stroke-width="1.5" />
+    <circle cx="410" cy="88" r="3.5" fill="#f43f5e" />
+    <circle cx="419" cy="88" r="3.5" fill="#eab308" />
+    <circle cx="428" cy="88" r="3.5" fill="#22c55e" />
+    <text x="440" y="91" fill="#047857" font-size="8" font-weight="700">daemon/openclaw-gateway</text>
+    
+    <!-- Claw and Whitelist Icons -->
+    <rect x="475" y="110" width="40" height="30" rx="6" fill="url(#greenGrad)" />
+    <!-- Claw representation -->
+    <path d="M 485 130 Q 495 120 505 130" stroke="#ffffff" stroke-width="2" fill="none" />
+    <circle cx="495" cy="130" r="3" fill="#ffffff" />
+    
+    <!-- Security Shield (AllowList) -->
+    <rect x="520" y="112" width="22" height="26" rx="3" fill="#f1f5f9" stroke="#059669" stroke-width="1" />
+    <path d="M 523 118 L 531 114 L 539 118 L 539 125 Q 531 133 531 133 Q 531 133 523 125 Z" fill="#059669" />
+    
+    <text x="495" y="165" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="12" font-weight="800" text-anchor="middle">OpenClaw Gateway</text>
+    <text x="495" y="180" fill="#047857" font-family="monospace" font-size="8.5" font-weight="700" text-anchor="middle">dmPolicy: "allowlist"</text>
+    
+    <!-- Details lines -->
+    <text x="495" y="200" fill="#64748b" font-size="8.5" text-anchor="middle">✓ Whitelist Filter Enforcement</text>
+    <text x="495" y="212" fill="#64748b" font-size="8.5" text-anchor="middle">✓ Markdown Parser &amp; State</text>
+    <text x="495" y="224" fill="#64748b" font-size="8.5" text-anchor="middle">✓ Long Poll Session Handler</text>
   </g>
 
-  <!-- Node 4: Ollama Local Server -->
+  <!-- NODE 4: Ollama Local Server -->
   <g filter="url(#shadow)">
-    <rect x="660" y="110" width="140" height="100" rx="12" fill="url(#nodeGrad)" stroke="#d0d7de" stroke-width="1.5" />
-    <rect x="715" y="125" width="30" height="30" rx="6" fill="url(#blueGrad)" />
-    <path d="M 723 148 L 726 135 L 730 135 L 733 148 Z" fill="#ffffff" />
-    <circle cx="730" cy="142" r="2" fill="#1877f2" />
-    <text x="730" y="175" fill="#24292f" font-family="Outfit, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Ollama Local API</text>
-    <text x="730" y="190" fill="#57606a" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Port 11434 / REST</text>
+    <rect x="670" y="80" width="200" height="160" rx="12" fill="url(#nodeGrad)" stroke="#1877f2" stroke-width="1.5" />
+    <!-- Window Header -->
+    <path d="M 670 96 L 870 96" stroke="#dbeafe" stroke-width="1.5" />
+    <circle cx="680" cy="88" r="3.5" fill="#cbd5e1" />
+    <circle cx="689" cy="88" r="3.5" fill="#cbd5e1" />
+    <circle cx="698" cy="88" r="3.5" fill="#cbd5e1" />
+    <text x="710" y="91" fill="#1e40af" font-size="8" font-weight="700">process/ollama-serve</text>
+    
+    <rect x="750" y="110" width="40" height="30" rx="6" fill="url(#blueGrad)" />
+    <!-- Ollama symbol - simple llama-head representation -->
+    <path d="M 764 130 L 767 118 L 773 118 L 776 130 Z" fill="#ffffff" />
+    <circle cx="770" cy="123" r="2" fill="#1e293b" />
+    
+    <text x="770" y="165" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="12" font-weight="800" text-anchor="middle">Ollama Local API</text>
+    <text x="770" y="180" fill="#1e40af" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">Model: gemma2</text>
+    
+    <!-- Details lines -->
+    <text x="770" y="200" fill="#64748b" font-size="8.5" text-anchor="middle">✓ OpenAI-Compatible API</text>
+    <text x="770" y="212" fill="#64748b" font-size="8.5" text-anchor="middle">✓ Streaming HTTP Responses</text>
+    <text x="770" y="224" fill="#64748b" font-size="8.5" text-anchor="middle">✓ Context Loading Engine</text>
+  </g>
+
+  <!-- NODE 5: M1 Pro Hardware Acceleration -->
+  <g filter="url(#shadow)">
+    <rect x="670" y="280" width="200" height="80" rx="12" fill="url(#nodeGrad)" stroke="#7c3aed" stroke-width="1.5" />
+    <rect x="680" y="292" width="28" height="28" rx="6" fill="url(#purpleGrad)" />
+    <!-- Chip details -->
+    <rect x="686" y="298" width="16" height="16" rx="2" fill="#ffffff" />
+    <text x="694" y="309" fill="#7c3aed" font-size="8" font-weight="900" text-anchor="middle">M1</text>
+    
+    <text x="718" y="303" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="11" font-weight="800">Apple M1 Pro</text>
+    <text x="718" y="315" fill="#7c3aed" font-size="8.5" font-weight="700">Unified Memory Architecture</text>
+    
+    <path d="M 680 328 L 860 328" stroke="#e9d5ff" stroke-width="1" />
+    <text x="770" y="343" fill="#64748b" font-size="9" font-weight="600" text-anchor="middle">Apple Silicon Metal GPU Compute</text>
+    <text x="770" y="352" fill="#94a3b8" font-size="8.5" text-anchor="middle">Metal Shader Model execution</text>
+  </g>
+
+  <!-- FLOW TIMELINE / INFOGRAPHICS STEPS -->
+  <!-- 1. Text Message Sent -->
+  <circle cx="160" cy="190" r="10" fill="#ea580c" />
+  <text x="160" y="193" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">1</text>
+  <text x="160" y="210" fill="#ea580c" font-size="8" font-weight="700" text-anchor="middle">Text Out</text>
+
+  <!-- 2. Long Polling Fetch -->
+  <circle cx="370" cy="177" r="10" fill="#059669" />
+  <text x="370" y="180" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">2</text>
+  <text x="370" y="200" fill="#059669" font-size="8" font-weight="700" text-anchor="middle">Poll In</text>
+
+  <!-- 3. Local API Call -->
+  <circle cx="625" cy="177" r="10" fill="#1877f2" />
+  <text x="625" y="180" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">3</text>
+  <text x="625" y="202" fill="#1877f2" font-size="8" font-weight="700" text-anchor="middle">Request</text>
+
+  <!-- 4. GPU Thread Launch -->
+  <circle cx="792" cy="260" r="10" fill="#7c3aed" />
+  <text x="792" y="263" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">4</text>
+  <text x="822" y="264" fill="#7c3aed" font-size="8" font-weight="700" text-anchor="middle">Compute</text>
+
+  <!-- LEGEND SECTION AT THE BOTTOM -->
+  <g transform="translate(100, 425)" font-size="10">
+    <rect x="-80" y="-12" width="880" height="24" rx="6" fill="#f8f9fa" stroke="#cbd5e1" stroke-width="0.5" />
+    
+    <!-- WAN -->
+    <line x1="-60" y1="0" x2="-30" y2="0" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4 3" />
+    <text x="-25" y="3" fill="#475569" font-weight="600">Public WAN (HTTPS)</text>
+    
+    <!-- Long polling polling/webhooks -->
+    <line x1="120" y1="0" x2="150" y2="0" stroke="#059669" stroke-width="2.5" />
+    <text x="155" y="3" fill="#475569" font-weight="600">Polling / Webhooks (JSON)</text>
+    
+    <!-- Loopback -->
+    <line x1="340" y1="0" x2="370" y2="0" stroke="#1877f2" stroke-width="2.5" />
+    <text x="375" y="3" fill="#475569" font-weight="600">Local Loopback (IPC)</text>
+    
+    <!-- GPU Compute Link -->
+    <line x1="530" y1="0" x2="560" y2="0" stroke="#7c3aed" stroke-width="2.5" />
+    <text x="565" y="3" fill="#475569" font-weight="600">Metal System Bus</text>
   </g>
 </svg>
