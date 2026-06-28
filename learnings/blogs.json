@@ -1,7 +1,18 @@
 [
     {
+        "id": "openclaw-ollama-telegram",
+        "title": "Telegram to Local Ollama & Gemma Setup",
+        "file": "openclaw-ollama-telegram.md",
+        "category": "Local AI",
+        "date": "Jun 28, 2026",
+        "readTime": "5 min read"
+    },
+    {
         "id": "blog3",
-        "title": "A Deep Dive into the GitHub Copilot Chat Window in VS Code",
-        "file": "blog3.md"
+        "title": "VS Code Copilot Chat Deep Dive",
+        "file": "blog3.md",
+        "category": "Developer Tools",
+        "date": "Apr 4, 2026",
+        "readTime": "3 min read"
     }
 ]
